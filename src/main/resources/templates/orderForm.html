@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Taco Cloud</title>
+<link rel="stylesheet" th:href="@{/taco.css}" />
+</head>
+
+<body>
+
+	<form method="POST" th:action="@{/orders}" th:object="${order}">
+		<div class="center">
+			<h1>Ordena tus creaciones!</h1>
+
+			<img th:src="@{/images/taco.png}" />
+			<div class="element">
+				<a th:href="@{/design}" id="another">Diseñar otro taco</a>
+			</div>
+		</div>
+		<div class="center">
+			<div th:if="${#fields.hasErrors()}">
+				<span class="validationError"> Por favor corriege el error y reenvia </span>
+			</div>
+
+
+			<h3>Envienme mi obra mestra del taco a...</h3>
+
+
+			<div class="element">
+				<div class="a">
+					<label for="name">Nombre: </label>
+				</div>
+
+				<div class="b">
+					<input type="text" th:field="*{deliveryName}" />
+				</div>
+
+				<div class="a">
+					<label for="street">Direccion: </label>
+				</div>
+				<div class="b">
+					<input type="text" th:field="*{deliveryStreet}" />
+				</div>
+
+				<div class="a">
+					<label for="city">Ciudad: </label>
+				</div>
+				<div class="b">
+					<input type="text" th:field="*{deliveryCity}" />
+				</div>
+				<div class="a">
+					<label for="state">Estado: </label>
+				</div>
+				<div class="b">
+					<input type="text" th:field="*{deliveryState}" />
+				</div>
+
+				<div class="a">
+					<label for="zip">Codigo postal: </label>
+				</div>
+				<div class="b">
+					<input type="text" th:field="*{deliveryZip}" />
+				</div>
+
+			</div>
+			<h3>Aqui es como voy a pagar...</h3>
+			<div class="element">
+
+				<div class="a">
+					<label for="ccNumber">Tarjeta de credito #: </label>
+				</div>
+
+
+				<div class="b">
+					<input type="text" th:field="*{ccNumber}" />
+				</div>
+				<div class="a">
+					<label for="ccExpiration">Expira: </label>
+				</div>
+				<div class="b">
+					<input type="text" th:field="*{ccExpiration}" />
+				</div>
+				<div class="a">
+					<label for="ccCVV">CVV: </label>
+				</div>
+				<div class="b">
+					<input type="text" th:field="*{ccCVV}" />
+				</div>
+
+			</div>
+			<div class="d">
+				<input type="submit" value="Enviar la orden" />
+			</div>
+		</div>
+
+
+
+	</form>
+
+</body>
+</html>
+
